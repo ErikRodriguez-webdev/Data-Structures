@@ -9,15 +9,20 @@ return elements in First In First Out order.
    Make sure the Queue tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Queue?
+
+   ***"Stack" of papers is = Last-in / Fist-out (LIFO)
+   ***"Queue"-d in a line at the store is = First-in / First-out (FIFO)
    
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
 """
+
+
 class Queue:
     def __init__(self):
         self.size = 0
         # self.storage = ?
-    
+
     def __len__(self):
         pass
 
