@@ -18,48 +18,48 @@ Stretch: What if you could only use instances of your Stack class to implement t
 """
 
 
-# class Queue:
-#     def __init__(self, storage=None):
-#         self.storage = storage if storage is not None else []
-
-#     def __len__(self):
-#         return len(self.storage)
-
-#     def enqueue(self, value):
-#         self.storage.append(value)
-
-#     def dequeue(self):
-#         if len(self.storage) > 0:
-#             return self.storage.pop(0)
-#         else:
-#             return None
-
-
-# the_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-# some_tests = Queue(the_list)
-
-# print(some_tests.__len__())
-# print(some_tests.storage)
-
-# print(some_tests.enqueue(102))
-# print(some_tests.storage)
-
-# print(some_tests.dequeue())
-# print(some_tests.storage)
-
-
-# Linked List Starts Here
-
 class Queue:
     def __init__(self, storage=None):
         self.storage = storage if storage is not None else []
 
     def __len__(self):
-        pass
+        return len(self.storage)
 
     def enqueue(self, value):
-        pass
+        self.storage.append(value)
 
     def dequeue(self):
-        pass
+        if len(self.storage) > 0:
+            return self.storage.pop(0)
+        else:
+            return None
+
+
+the_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+some_tests = Queue(the_list)
+
+print(some_tests.__len__())
+print(some_tests.storage)
+
+print(some_tests.enqueue(102))
+print(some_tests.storage)
+
+print(some_tests.dequeue())
+print(some_tests.storage)
+
+
+# Linked List Starts Here
+
+# class Queue:
+#     def __init__(self, storage=None):
+#         self.storage = storage if storage is not None else []
+
+#     def __len__(self):
+#         pass
+
+#     def enqueue(self, value):
+#         pass
+
+#     def dequeue(self):
+#         pass

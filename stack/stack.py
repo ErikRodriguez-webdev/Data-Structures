@@ -1,4 +1,6 @@
-from singly_linked_list import LinkedList
+# from singly_linked_list import LinkedList
+# import sys
+# sys.path.insert(1, "\singly_linked_list\singly_linked_list")
 
 """
 A stack is a data structure whose primary purpose is to store and
@@ -25,11 +27,11 @@ return elements in Last In First Out order.
 #         return len(self.storage)
 
 #     def push(self, value):
-#         self.storage.insert(0, value)
+#         self.storage.append(value)
 
 #     def pop(self):
 #         if len(self.storage) > 0:
-#             return self.storage.pop(0)
+#             return self.storage.pop()
 #         else:
 #             return None
 
