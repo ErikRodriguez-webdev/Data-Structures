@@ -1,3 +1,5 @@
+from singly_linked_list import LinkedList
+
 """
 A stack is a data structure whose primary purpose is to store and
 return elements in Last In First Out order. 
@@ -48,10 +50,16 @@ return elements in Last In First Out order.
 
 # Linked List Starts Here
 
+a_test = LinkedList()
+
+print(a_test)
+
 
 class Stack:
-    def __init__(self, storage=None):
-        self.storage = storage if storage is not None else []
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.size = 0
 
     def __len__(self):
         pass
