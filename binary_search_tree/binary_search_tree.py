@@ -44,12 +44,12 @@ class BSTNode:
             if self.left is None:
                 return False
             else:
-                self.left.contains(target)
+                return self.left.contains(target)
         if target > self.value:
             if self.right is None:
                 return False
             else:
-                self.left.contains(target)
+                return self.left.contains(target)
 
         # check if target is greater than root, then:
         # if target == self.value, then return true
@@ -72,4 +72,10 @@ class BSTNode:
     # Call the function fn on the value of each node
 
     def for_each(self, fn):
-        pass
+        # call fn on self.value
+        fn(self.value)
+        # check if left and right are truthy to continue moving through to all values
+        if self.left:
+            self.left.for_each(fn)
+        if self.right:
+            self.right.for_each(fn)

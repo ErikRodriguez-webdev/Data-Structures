@@ -124,23 +124,22 @@ class DoublyLinkedList:
 
     def move_to_front(self, node):
         # check if there is a head and a tail, if not return None
+        print(node)
         if self.head and self.tail is None:
             return None
+            # check if head and tail are pointing to the same node, if yes, then do nothing because its already the head and tail
         elif self.head == self.tail:
             return None
+            # if node equals head then do nothing because its already first thing in the list
         elif node == self.head:
             return None
+            # if node equals tail then get the previous node and set that to the tail
         elif node == self.tail:
-            self.tail = node.prev
-            node.next = self.head.prev
+            self.tail = self.head.prev
+            self.tail.next = None
             node.prev = None
-            node = self.head
-
-        # check if head and tail are pointing to the same node, if yes, then do nothing because its alreading head and tail
-
-        # if node equals head then do nothing because its already first thing in the list
-
-        # if node equals tail then get the previous node and set that to the tail
+            node = self.head.prev
+            self.head = node
 
         # else delete current node location and use the value in the node to add to head.
 
@@ -172,8 +171,6 @@ class DoublyLinkedList:
             self.head = None
             self.tail = None
         elif self.head == node:
-            print(node.value)
-            print(node.next.value)
             self.head = node.next
             node.delete()
         elif self.tail == node:
