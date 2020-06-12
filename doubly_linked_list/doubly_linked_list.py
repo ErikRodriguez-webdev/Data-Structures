@@ -89,10 +89,10 @@ class DoublyLinkedList:
             self.tail = new_node
             self.length += 1
         else:
-            old_node_prev = self.tail
+            old_node = self.tail
             self.tail = new_node
-            old_node_prev.next = self.tail
-            self.tail.prev = old_node_prev
+            old_node.next = self.tail
+            self.tail.prev = old_node
             self.length += 1
 
         # else access the next until we get to the very end
@@ -123,23 +123,11 @@ class DoublyLinkedList:
     List and inserts it as the new head node of the List."""
 
     def move_to_front(self, node):
-        # check if there is a head and a tail, if not return None
-        print(node)
-        if self.head and self.tail is None:
+        if self.length == 0 or self.length == 1:
             return None
-            # check if head and tail are pointing to the same node, if yes, then do nothing because its already the head and tail
-        elif self.head == self.tail:
-            return None
-            # if node equals head then do nothing because its already first thing in the list
-        elif node == self.head:
-            return None
-            # if node equals tail then get the previous node and set that to the tail
-        elif node == self.tail:
-            self.tail = self.head.prev
-            self.tail.next = None
-            node.prev = None
-            node = self.head.prev
-            self.head = node
+        else:
+            self.add_to_head(node.value)
+            self.delete(node)
 
         # else delete current node location and use the value in the node to add to head.
 
@@ -147,7 +135,11 @@ class DoublyLinkedList:
     List and inserts it as the new tail node of the List."""
 
     def move_to_end(self, node):
-        pass
+        if self.length == 0 or self.length == 1:
+            return None
+        else:
+            self.add_to_tail(node.value)
+            self.delete(node)
         # check if there is a head and a tail, if not return None
 
         # check if head and tail are pointing to the same node, if yes, then do nothing because its alreading head and tail
@@ -182,9 +174,18 @@ class DoublyLinkedList:
     """Returns the highest value currently in the list"""
 
     def get_max(self):
-        pass
-        # current_node = self.head
-        # while current_node.next is not None:
-        # current_node = self.head.next
-
-        # check the value of the old head and compare it the the current one return the highest value
+        if not self.head:
+            return None
+        # reference to the largest value we've seen so far
+        max_value = self.head.value
+        # reference to our current node as we traverse the list
+        current = self.head.next
+        # check to see if we're still at a valid list node
+        while current:
+            # check to see if the current value is greater than the max_value
+            if current.value > max_value:
+                # if so, update our max_value variable
+                max_value = current.value
+            # update the current node to the next node in the list
+            current = current.next
+        return max_value
