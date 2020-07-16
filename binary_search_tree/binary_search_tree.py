@@ -101,6 +101,7 @@ class BSTNode:
     # in an iterative breadth first traversal
 
     def bft_print(self):
+        pass
         # while self:
         #     print(self.value)
 
