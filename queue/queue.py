@@ -175,13 +175,18 @@ class LinkedList:
 
 class Queue:
     def __init__(self, storage=None):
-        self.storage = storage if storage is not None else []
+        self.storage = LinkedList()
+        self.size = 0
 
     def __len__(self):
-        pass
+        return self.size
 
     def enqueue(self, value):
-        pass
+        self.storage.add_to_tail(value)
+        self.size = self.size + 1
 
     def dequeue(self):
-        pass
+        if self.size == 0:
+            return None
+        self.size = self.size - 1
+        return self.storage.remove_head()
